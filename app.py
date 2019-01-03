@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 import readability
 
 app = Flask(__name__)
@@ -9,7 +9,7 @@ def post_text():
     """receives POST req from node server, runs readability
     method, responds with jsonified dict"""
 
-    text = (['For the album, see Grand Unification (album)'])
+    text = request.args.get()
     results = readability.getmeasures(text, lang='en')
     print(results['readability grades']['FleschReadingEase'])
     print(text)
