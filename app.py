@@ -10,7 +10,7 @@ def post_text():
     method, responds with jsonified dict"""
     text = request.json['content']
     results = readability.getmeasures(text, lang='en')
-    print('RATING \n', results['readability grades'])
+    # print('RATING \n', results['readability grades'])
     # print(text['content'], 'TEXT')
 
     return jsonify(results)
